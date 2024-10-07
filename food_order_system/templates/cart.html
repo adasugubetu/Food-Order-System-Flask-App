@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Coșul de Cumpărături</title>
+</head>
+<body>
+<header>
+    <h1>Coșul Meu</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Acasă
+                <i class="fa-solid fa-house"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_meniu') }}">Meniul zilei
+                <i class="fa-solid fa-bars"></i>
+            </li>
+            <li><a href="{{ url_for('profile') }}">Profil
+                <i class="fa fa-user" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_cart') }}">Coș ({{ total_items if total_items is not none else 0 }})
+                <i class="fa-solid fa-cart-shopping"></i></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Container pentru grid -->
+<div class="grid-container">
+    {% if cart %}
+        {% for item in cart %}
+        <div class="grid-item">
+            <img src="{% if item.menu_item.category_id == 1 %}
+                            {{ url_for('static', filename='galerie/aperitive_garnituri/' + item.menu_item.image) }}
+                        {% elif item.menu_item.category_id == 2 %}
+                            {{ url_for('static', filename='galerie/bunatati_din_carne/' + item.menu_item.image) }}
+                        {% elif item.menu_item.category_id == 3 %}
+                            {{ url_for('static', filename='galerie/bunatati_vegetariene/' + item.menu_item.image) }}
+                        {% elif item.menu_item.category_id == 4 %}
+                            {{ url_for('static', filename='galerie/deserturi/' + item.menu_item.image) }}
+                        {% elif item.menu_item.category_id == 5 %}
+                            {{ url_for('static', filename='galerie/salate/' + item.menu_item.image) }}
+                        {% elif item.menu_item.category_id == 6 %}
+                            {{ url_for('static', filename='galerie/supe_ciorbe/' + item.menu_item.image) }}
+                        {% else %}
+                            {{ url_for('static', filename='galerie/default_image.jpg') }}
+                        {% endif %}"
+                 alt="{{ item.menu_item.name }}" style="width: 300px; height: auto; display: block; margin: 0 auto;;">
+            <br><br>
+            <p>{{ item.menu_item.name }} - <strong>{{ item.menu_item.price }} RON</strong> x {{ item.quantity }}</p>
+            <form action="{{ url_for('remove_from_cart') }}" method="POST">
+                <input type="hidden" name="item_id" value="{{ item.menu_item.id }}">
+                <button class="btn" type="submit">Elimină</button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Coșul tău este gol!</p>
+    {% endif %}
+</div>
+
+{% if cart %}
+    <div class="summary">
+        <p><b>Sumar</b></p>
+        <p>Total articole: {{ total_items }}</p>
+        <p><strong>Total:</strong> {{ total }} RON</p>
+    </div>
+
+    <form action="{{ url_for('finish_order') }}" method="POST">
+        <button class="btn" type="submit">Finalizează Comanda</button>
+    </form>
+{% endif %}
+
+<footer>
+    <p>&copy; 2024 Coșul Meu</p>
+</footer>
+</body>
+</html>

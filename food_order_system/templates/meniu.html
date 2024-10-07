@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Meniu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <h1>Meniu</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Acasă
+                <i class="fa-solid fa-house"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_meniu') }}">Meniul zilei
+                <i class="fa-solid fa-bars"></i>
+            </li>
+            <li><a href="{{ url_for('profile') }}">Profil
+                <i class="fa fa-user" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_cart') }}">Coș ({{ total_items if total_items is not none else 0 }})
+                <i class="fa-solid fa-cart-shopping"></i></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div>
+    <div class="grid">
+
+        <div class="recipe">
+            <img src="static/galerie/aperitive_garnituri/pilaf-cu-ciuperci.jpg" alt="pilaf-cu-ciuperci">
+            <a href="/aperitive_garnituri" class="btn">Aperitive & Garnituri</a>
+        </div>
+
+        <div class="recipe">
+            <img src="static/galerie/bunatati_din_carne/ostropel-de-pui-pe-pat-de-piure.jpg" alt="ostropel-de-pui-pe-pat-de-piure">
+            <a href="/bunatati_din_carne" class="btn">Bunatati din carne</a>
+        </div>
+
+        <div class="recipe">
+            <img src="static/galerie/bunatati_vegetariene/ghiveci-calugaresc.jpg" alt="ghiveci-calugaresc">
+            <a href="/bunatati_vegetariene" class="btn">Bunatati vegetariene</a>
+        </div>
+
+        <div class="recipe">
+            <img src="static/galerie/deserturi/brownie.jpg" alt="brownie">
+            <a href="/deserturi" class="btn">Deserturi</a>
+        </div>
+
+        <div class="recipe">
+            <img src="static/galerie/salate/salata-tabouleh.jpg" alt="salata-tabouleh">
+            <a href="/salate" class="btn">Salate</a>
+        </div>
+
+        <div class="recipe">
+            <img src="static/galerie/supe_ciorbe/ciorba-de-perisoare.jpg" alt="ciorba-de-perisoare">
+            <a href="/supe_ciorbe" class="btn">Supe & Ciorbe</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Supe si Ciorbe ca la Mama Acasa</p>
+</footer>
+
+</body>
+</html>

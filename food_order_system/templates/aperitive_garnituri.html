@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Aperitive & Garnituri</title>
+</head>
+<body>
+
+<header>
+    <h1>Aperitive & Garnituri</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Acasă
+                <i class="fa-solid fa-house"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_meniu') }}">Meniul zilei
+                <i class="fa-solid fa-bars"></i>
+            </li>
+            <li><a href="{{ url_for('profile') }}">Profil
+                <i class="fa fa-user" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="{{ url_for('show_cart') }}">Coș ({{ total_items if total_items is not none else 0 }})
+                <i class="fa-solid fa-cart-shopping"></i></a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div>
+    <div class="grid">
+        {% for item in meniu %}
+            <div class="recipe">
+                <img src="{{ url_for('static', filename='galerie/aperitive_garnituri/' + item.image) }}" alt="{{ item.name }}">
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.description }}</p>
+                <p>Preț: {{ item.price }} Lei</p>
+                <div class="add-to-cart">
+                    <form action="{{ url_for('add_to_cart') }}" method="POST">
+                        <input type="hidden" name="item_id" value="{{ item.id }}">
+                        <input type="number" name="quantity" value="1" min="1" style="width: 50px;">
+                        <br><br>
+                        <button type="submit">Adaugă în coș
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Aperitive & Garnituri</p>
+</footer>
+
+</body>
+</html>

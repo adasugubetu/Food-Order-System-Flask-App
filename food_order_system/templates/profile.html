@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Bine ai venit, {{ username }}!</h1>
+        <div class="buttons">
+            <a href="{{ url_for('show_cart') }}" class="btn">Cos de cumparaturi</a>
+            <a href="{{ url_for('order_history') }}" class="btn">Istoric comenzi</a>
+        </div>
+        <div class="buttons">
+            <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

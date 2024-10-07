@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Homepage</title>
+</head>
+<body>
+    <div class="container">
+        {% if logged_in %}
+            <h1>Bine ai revenit, {{username}}!</h1>
+            <a href="/profile" class="btn">Vezi Profil</a>
+            <a href="/meniu" class="btn">Vezi Meniul Zilei!</a>
+            <a href="/logout" class="btn">Logout</a>
+        {% else %}
+            <h1>Bine ati venit in Aplicatia 'Comanda Mancare Online'!</h1>
+            <p>Va rugam sa va logati sa sa va inregistrati pentru a continua!</p>
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn">Register</a>
+        {% endif %}
+    </div>
+</body>
+</html>

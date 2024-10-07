@@ -1,0 +1,161 @@
+header {
+    width: 100%;
+    background-color: #d35400;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: Comic Sans MS;
+    background-color: #edb58a;
+    color: #333;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 425px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 25px;
+    margin: 40px;
+}
+
+.recipe {
+    width: 220px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #d35400;
+    margin-bottom: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.recipe h2 {
+    margin-top: 10px;
+    color: #d35400;
+    font-size: 1.2em;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.add-to-cart {
+    margin-top: 10px;
+}
+
+.add-to-cart button {
+    background-color: #ed7461;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.add-to-cart button:hover {
+    background-color: #e8381c;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+.btn {
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    background-color: #ed7461;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #e8381c;
+}
+
+.summary {
+    margin-top: 20px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
